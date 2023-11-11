@@ -78,28 +78,28 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail(); // Assuming email is the username
+        return user.getEmail();
     }
 
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // You can customize this based on your requirements
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // You can customize this based on your requirements
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // You can customize this based on your requirements
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // You can customize this based on your requirements
+        return true;
     }
 
 }

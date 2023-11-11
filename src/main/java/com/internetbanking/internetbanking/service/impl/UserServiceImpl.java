@@ -54,69 +54,6 @@ public class UserServiceImpl implements UserService {
         this.jwtUtils = jwtUtils;
     }
 
-//    public JwtResponse loginUser(LoginRequest request) {
-//        User user = new User();
-//        String email = user.getEmail();
-//
-//
-//
-//        Authentication authentication;
-//        try {
-//            authentication = authenticationManager.authenticate(new
-//                    UsernamePasswordAuthenticationToken(
-//                    user.getEmail().toLowerCase(),
-//                    request.getPassword()));
-//
-//        } catch (Exception e) {
-//            throw new Exception("Invalid credentials");
-//        }
-//
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        String jwt = jwtUtils.generateJwtToken(authentication);
-//        User user = (UserDetailsImpl) authentication.getPrincipal();
-//
-//
-//
-//        return new JwtResponse(jwt,
-//                userDetails.getId(),
-//                userDetails.getEmail());
-//    }
-//
-
-//    @Override
-//    public JwtResponse loginUser(LoginRequest request) throws Exception {
-//
-//        String email = request.getEmail();
-//        String password = request.getPassword();
-//
-//        User user = userRepository.findByEmail(email);
-//
-//        authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        request.getEmail(),
-//                        request.getPassword()
-//                )
-//        );
-//
-//        Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
-//
-//        var jwtToken = jwtUtils.generateToken(authentication);
-//
-//        if (user == null) {
-//            throw new UsernameNotFoundException("User not found with email: " + email);
-//        }
-//
-//        if (!passwordEncoder.matches(password, user.getPassword())) {
-//            throw new BadCredentialsException("Invalid credentials");
-//        }
-//
-//        return JwtResponse.builder()
-//                .email(user.getEmail())
-//                .id(user.getId())
-//                .build();
-//
-//    }
-
     public void saveUser(User user) {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
